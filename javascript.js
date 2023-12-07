@@ -1,47 +1,49 @@
-
-function getComputerchoice(){
-    let choicenum = Math.floor(Math.random()*3);
-    if (choicenum === 0){
-        return 'Rock';
-    }
-    else if (choicenum === 1){
-        return 'Paper';
-    }
-    else (choicenum === 2)
-       return 'Sciccors';
+let playerSelection;
+let computerSelection;
+for (let i = 1; i <=5; i++){
+    let playerSelection = prompt("please enter rock, paper or scissor").toLowerCase();
 }
 
+let playerScore = 0;
+let computerScore = 0;
 
-function play_round(player_selection, computer_selection){
-    if (player_selection = 'rock' && computer_selection == 'paper'){
-        return "You Lose! Paper beats Rock";
-    }
-    else if (player_selection = 'rock'  && computer_selection == 'scissors'){
-        return "You Win! Rock beats Scissors";
-    }
-    else if (player_selection = 'paper' && computer_selection == 'scissors'){
-        return "You Lose! Scissors beats Rock"; 
-    }
-    else if (player_selection = 'paper'  && computer_selection == 'rock'){
-        return "You Win! Paper beats Rock";
-    }
-    else if (player_selection = 'Scissors' && computer_selection == 'rock'){
-        return "You Lose! Rock beats Sciccors";
-    }
-    else if (player_selection = 'Scissors'  && computer_selection == 'paper'){
-        return "You Win! Scissors beats Paper";
-    }
-    else {
-        return "Draw";
-    }
+for(let i = 1; i <= 5; i++){
+    function getComputerChoice (){
+        if(choice === 0){
+            return 'rock';
+        }else if (choice === 1){
+            return 'paper';
+        }else {
+            return 'scissor';
+        }
+        
+        }
+    let choice = Math.floor(Math.random()*3);
+    let computerSelection = getComputerChoice();
 }
 
-
-function game(){
-    for (let i = 1; i <= 5; i++){
-        const player_selection = prompt("write your choices");
-        const computer_selection = getComputerchoice();
-        console.log(play_round(player_selection,computer_selection));
+function playRound(playerSelection,computerSelection){
+    
+    if ((playerSelection === 'rock' && computerSelection === 'scissor')||
+       (playerSelection === 'scissor' && computerSelection === 'paper')||
+       (playerSelection === 'paper' && computerSelection === 'rock')){
+            playerScore++;
+    }else if((playerSelection === 'rock' && computerSelection === 'paper')||
+            (playerSelection === 'scissor' && computerSelection === 'rock')||
+            (playerSelection === 'paper' && computerSelection === 'scissor')){
+                computerScore++;
+    }else {
+        return 'Tie';
     }
 }
-console.log(game());
+for (let i = 1; i <= 5; i++){
+    console.log(playRound(playerSelection,computerSelection));
+}
+function result(playerscore,computerScore){
+    if (playerscore > computerScore){
+        console.log("player wins");
+    }else{
+        console.log("computer wins");
+    }
+}
+console.log(result(playerScore,computerScore));

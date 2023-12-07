@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A game of rock paper scisssors
+made it to work properly 
